@@ -10,6 +10,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import java.time.format.DateTimeFormatter;
 
 import java.util.Optional;
 
@@ -25,8 +30,15 @@ public class HelloController {
     @FXML private ComboBox<String> cbClase;
     @FXML private TextField txtIban;
     @FXML private Label lblEstado;
+    @FXML private TableView<Socio> tablaSocios;
+    @FXML private TableColumn<Socio, String> colNombre;
+    @FXML private TableColumn<Socio, String> colApellidos;
+    @FXML private TableColumn<Socio, String> colFecha;
+    @FXML private TableColumn<Socio, String> colProvincia;
+    @FXML private TableColumn<Socio, String> colCuota;
+    @FXML private TableColumn<Socio, String> colClase;
 
-    // Se ejecuta al abrir la pantalla: rellena los desplegables
+    // Se ejecuta cuando se abre la pantalla
     @FXML
     public void initialize() {
         cbProvincia.getItems().addAll("A Coruña", "Álava", "Albacete", "Alicante", "Almería", "Asturias",
@@ -39,9 +51,17 @@ public class HelloController {
 
         cbClase.getItems().addAll("Aquagym", "Body Pump", "Boxeo", "Crossfit", "Funcional",
                 "Pilates", "Spinning", "Step", "Yoga", "Zumba");
+
+        // Le digo a cada columna qué dato del socio tiene que mostrar
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
+        colProvincia.setCellValueFactory(new PropertyValueFactory<>("provincia"));
+        colCuota.setCellValueFactory(new PropertyValueFactory<>("cuota"));
+        colClase.setCellValueFactory(new PropertyValueFactory<>("clase"));
     }
 
-    // Botón "Dar de alta": comprueba los datos obligatorios
+    // Es el botón de dar de alta, que comprueba los datos que son obligatorios
     @FXML
     private void darDeAlta() {
         if (txtNombre.getText().isBlank()) {
@@ -71,6 +91,15 @@ public class HelloController {
 
         String nombreCompleto = txtNombre.getText() + " " + txtApellido1.getText() + " " + txtApellido2.getText();
 
+        // Creo el socio con los datos del formulario y lo añado a la tabla
+        String apellidos = txtApellido1.getText() + " " + txtApellido2.getText();
+        String fecha = dpFechaNacimiento.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        RadioButton cuotaElegida = (RadioButton) grupoCuota.getSelectedToggle();
+
+        Socio nuevo = new Socio(txtNombre.getText(), apellidos, fecha,
+                cbProvincia.getValue(), cuotaElegida.getText(), cbClase.getValue());
+        tablaSocios.getItems().add(nuevo);
+
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Alta completada");
         alerta.setHeaderText("Socio dado de alta correctamente");
@@ -81,7 +110,7 @@ public class HelloController {
         vaciarCampos();
     }
 
-    // Botón "Limpiar formulario": pide confirmación antes de borrar
+    // Botón "Limpiar formulario", que pide confirmación antes de borrar el formulario
     @FXML
     private void limpiarFormulario() {
         Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -93,7 +122,7 @@ public class HelloController {
         ButtonType borrar = new ButtonType("Borrar datos", ButtonBar.ButtonData.OK_DONE);
         alerta.getButtonTypes().setAll(cancelar, borrar);
 
-        // Cancelar es el botón por defecto, para no borrar sin querer pulsando Enter
+        // Se pone el botón de "Cancelar" como por defecto, para que así no se borre sin querer pulsando Enter
         ((Button) alerta.getDialogPane().lookupButton(borrar)).setDefaultButton(false);
         ((Button) alerta.getDialogPane().lookupButton(cancelar)).setDefaultButton(true);
 
@@ -104,7 +133,7 @@ public class HelloController {
         }
     }
 
-    // Mensaje de error: qué ha pasado y cómo solucionarlo
+    // Se indica en el mensaje de error qué ha pasado y cómo solucionarlo
     private void mostrarError(String queFalla, String comoSolucionarlo) {
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         alerta.setTitle("Revisa el formulario");

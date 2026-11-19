@@ -196,14 +196,14 @@
         <VBox spacing="10.0" BorderPane.alignment="CENTER">
             <children>
                 <Label styleClass="titulo" text="Socios registrados" />
-                <TableView VBox.vgrow="ALWAYS">
+                <TableView fx:id="tablaSocios" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn prefWidth="110.0" text="Nombre" />
-                        <TableColumn prefWidth="150.0" text="Apellidos" />
-                        <TableColumn prefWidth="140.0" text="Fecha de nacimiento" />
-                        <TableColumn prefWidth="100.0" text="Provincia" />
-                        <TableColumn prefWidth="100.0" text="Tipo de cuota" />
-                        <TableColumn prefWidth="90.0" text="Clase" />
+                        <TableColumn fx:id="colNombre" prefWidth="110.0" text="Nombre" />
+                        <TableColumn fx:id="colApellidos" prefWidth="150.0" text="Apellidos" />
+                        <TableColumn fx:id="colFecha" prefWidth="140.0" text="Fecha de nacimiento" />
+                        <TableColumn fx:id="colProvincia" prefWidth="100.0" text="Provincia" />
+                        <TableColumn fx:id="colCuota" prefWidth="100.0" text="Tipo de cuota" />
+                        <TableColumn fx:id="colClase" prefWidth="90.0" text="Clase" />
                     </columns>
                     <contextMenu>
                         <ContextMenu>

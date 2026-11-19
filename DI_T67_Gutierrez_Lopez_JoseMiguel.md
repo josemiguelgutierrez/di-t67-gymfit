@@ -16,3 +16,22 @@ Desarrollo de Interfaces · 2.º DAM
 | 7 | Algunas opciones, como el sexo, hay que escribirlas.                                                                                     | En el formulario de alta, en el campo de "Sexo" | Cada dato debe tener su elemento correspondiente para introducirlo                                     | 3 | Poner botones de radio para elegir una opción.                                                            |
 | 8 | Los botones de abajo están desordenados y hay botones repetidos y el botón de "BORRAR TODO" está al lado sin pedir confirmación.        | En los botones de abajo del formulario         | Lo importante tiene que destacar y el diseño tiene que evitar que el usuario se equivoque              | 4 | Un botón principal destacado y el de borrar separado y con confirmación.                                  |
 
+## Parte 2 · Rediseño en Scene Builder con intellij
+
+La pantalla de la aplicación de escritorio con los problemas solucionados y funcionando corectamente.
+
+![Pantalla_de_escritorio](capturas/aplicacion_funcionando.png)
+
+## Parte 3 · Mini test con usuarios
+
+Las respuestas se recogieron con un formulario de Google Forms y se exportaron a CSV ([RespuestasFormulario.csv](RespuestasFormulario.csv)).
+
+![Respuestas 1](capturas/test_respuestas_1.png)
+![Respuestas 2](capturas/test_respuestas_2.png)
+![Respuestas 3](capturas/test_respuestas_3.png)
+![Respuestas 4](capturas/test_respuestas_4.png)
+![Respuestas en Excel](capturas/respuestas_excel.png)
+
+### Conclusión
+
+He aprendido que si se pone el control adecuado para cada dato, como el calendario para la fecha o los botones de radio para el sexo, la aplicación es más fácil de usar y el usuario se equivoca menos, porque elige las opciones en vez de escribirlas. Lo que cambiaría es poner más clases en el desplegable, como dijo Pedro, y que se pueda escribir para buscar la clase más rápido.

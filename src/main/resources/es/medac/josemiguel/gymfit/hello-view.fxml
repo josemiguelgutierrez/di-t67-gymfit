@@ -1,82 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.medac.josemiguel.gymfit.HelloController">
-   <top>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="Archivo">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="Guardar">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" text="Exportar socios..." />
-                        <MenuItem mnemonicParsing="false" text="Imprimir" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                    <MenuItem mnemonicParsing="false" text="Salir" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Editar">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Deshacer">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
-                           </accelerator>
-                        </MenuItem>
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cortar" />
-                        <MenuItem mnemonicParsing="false" text="Copiar" />
-                        <MenuItem mnemonicParsing="false" text="Pegar" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Buscar socio">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="F" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
-                           </accelerator>
-                        </MenuItem>
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Socios">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Archivo">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Guardar">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                    </accelerator>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false" text="Exportar socios..." />
+                                <MenuItem mnemonicParsing="false" text="Imprimir" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Salir" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Editar">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Deshacer">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                    </accelerator>
+                                </MenuItem>
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Cortar" />
+                                <MenuItem mnemonicParsing="false" text="Copiar" />
+                                <MenuItem mnemonicParsing="false" text="Pegar" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Buscar socio">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="F" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                    </accelerator>
+                                </MenuItem>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Socios">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Nuevo socio">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="N" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                                    </accelerator>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false" text="Editar socio" />
+                                <MenuItem mnemonicParsing="false" text="Renovar cuota" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Dar de baja" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Ver">
+                            <items>
+                                <CheckMenuItem mnemonicParsing="false" selected="true" text="Barra de herramientas" />
+                                <CheckMenuItem mnemonicParsing="false" selected="true" text="Barra de estado" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Ayuda">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Manual de uso" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Acerca de GymFit Manager" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <ToolBar>
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Nuevo socio">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="N" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" text="Editar socio" />
-                        <MenuItem mnemonicParsing="false" text="Renovar cuota" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Dar de baja" />
+                        <Button mnemonicParsing="false" text="➕ Nuevo socio">
+                            <tooltip>
+                                <Tooltip text="Dar de alta un socio nuevo (Ctrl+N)" />
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" text="💾 Guardar">
+                            <tooltip>
+                                <Tooltip text="Guardar los cambios (Ctrl+S)" />
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" text="🔍 Buscar">
+                            <tooltip>
+                                <Tooltip text="Buscar un socio en la tabla (Ctrl+F)" />
+                            </tooltip>
+                        </Button>
+                        <Separator orientation="VERTICAL" />
+                        <Button mnemonicParsing="false" text="🗑 Dar de baja">
+                            <tooltip>
+                                <Tooltip text="Dar de baja al socio seleccionado en la tabla" />
+                            </tooltip>
+                        </Button>
                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Ver">
-                     <items>
-                        <CheckMenuItem mnemonicParsing="false" selected="true" text="Barra de herramientas" />
-                        <CheckMenuItem mnemonicParsing="false" selected="true" text="Barra de estado" />
-                     </items>
-                  </Menu>
-                <Menu mnemonicParsing="false" text="Ayuda">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="Manual de uso" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                    <MenuItem mnemonicParsing="false" text="Acerca de GymFit Manager" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </children>
-      </VBox>
-   </top>
+                </ToolBar>
+            </children>
+        </VBox>
+    </top>
+    <left>
+        <VBox prefWidth="520.0" spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label styleClass="titulo" text="Alta de socio" />
+                <GridPane hgap="10.0" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="320.0" />
+                    </columnConstraints>
+                    <children>
+                        <Label text="Nombre" />
+                        <TextField fx:id="txtNombre" promptText="Ej.: Laura" GridPane.columnIndex="1" />
+                        <Label text="Primer apellido" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtApellido1" promptText="Ej.: Gómez" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Segundo apellido" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtApellido2" promptText="Ej.: Ruiz" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Fecha de nacimiento" GridPane.rowIndex="3" />
+                        <DatePicker fx:id="dpFechaNacimiento" maxWidth="1.7976931348623157E308" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Sexo" GridPane.rowIndex="4" />
+                        <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <children>
+                                <RadioButton mnemonicParsing="false" text="Hombre">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="grupoSexo" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="Mujer" toggleGroup="$grupoSexo" />
+                                <RadioButton mnemonicParsing="false" text="Otro" toggleGroup="$grupoSexo" />
+                            </children>
+                        </HBox>
+                        <Label text="Provincia" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cbProvincia" maxWidth="1.7976931348623157E308" promptText="Selecciona una provincia" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Tipo de cuota" GridPane.rowIndex="6" />
+                        <FlowPane hgap="15.0" vgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                            <children>
+                                <RadioButton mnemonicParsing="false" text="Básica">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="grupoCuota" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton mnemonicParsing="false" text="Plus" toggleGroup="$grupoCuota" />
+                                <RadioButton mnemonicParsing="false" text="Premium" toggleGroup="$grupoCuota" />
+                                <RadioButton mnemonicParsing="false" text="Joven" toggleGroup="$grupoCuota" />
+                                <RadioButton mnemonicParsing="false" text="Senior" toggleGroup="$grupoCuota" />
+                            </children>
+                        </FlowPane>
+                        <Label text="Clase" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="cbClase" maxWidth="1.7976931348623157E308" promptText="Selecciona una clase" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label text="IBAN" GridPane.rowIndex="8" />
+                        <TextField fx:id="txtIban" promptText="ES00 0000 0000 0000 0000 0000" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                    </children>
+                </GridPane>
+                <HBox spacing="10.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#limpiarFormulario" styleClass="boton-peligro" text="Limpiar formulario" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#darDeAlta" styleClass="boton-principal" text="Dar de alta" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label styleClass="titulo" text="Socios registrados" />
+                <TableView VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn prefWidth="110.0" text="Nombre" />
+                        <TableColumn prefWidth="150.0" text="Apellidos" />
+                        <TableColumn prefWidth="140.0" text="Fecha de nacimiento" />
+                        <TableColumn prefWidth="100.0" text="Provincia" />
+                        <TableColumn prefWidth="100.0" text="Tipo de cuota" />
+                        <TableColumn prefWidth="90.0" text="Clase" />
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Editar socio" />
+                                <MenuItem mnemonicParsing="false" text="Duplicar" />
+                                <MenuItem mnemonicParsing="false" text="Renovar cuota" />
+                                <MenuItem mnemonicParsing="false" text="Congelar cuota" />
+                                <MenuItem mnemonicParsing="false" text="Ver historial" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Dar de baja" />
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                    <placeholder>
+                        <Label text="Todavía no hay socios. Rellena el formulario y pulsa «Dar de alta»." />
+                    </placeholder>
+                </TableView>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox styleClass="barra-estado" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblEstado" text="Listo" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+            </padding>
+        </HBox>
+    </bottom>
+    <stylesheets>
+        <URL value="@estilos.css" />
+    </stylesheets>
 </BorderPane>

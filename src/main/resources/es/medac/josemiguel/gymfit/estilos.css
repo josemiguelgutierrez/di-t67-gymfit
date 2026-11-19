@@ -1,0 +1,33 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-background-color: #F5F7FA;
+}
+
+.label {
+    -fx-text-fill: #1F2933;
+}
+
+.titulo {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1565C0;
+}
+
+.boton-principal {
+    -fx-background-color: #1565C0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+}
+
+.boton-peligro {
+    -fx-background-color: white;
+    -fx-border-color: #C62828;
+    -fx-text-fill: #C62828;
+    -fx-padding: 8 20;
+}
+
+.barra-estado {
+    -fx-background-color: white;
+}

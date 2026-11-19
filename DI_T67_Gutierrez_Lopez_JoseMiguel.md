@@ -24,7 +24,7 @@ La pantalla de la aplicación de escritorio con los problemas solucionados y fun
 
 ## Parte 3 · Mini test con usuarios
 
-**Tarea a realizar:**Dar de alta a Laura Gómez Ruiz, nacida el 14/05/2003, de Sevilla, con cuota Joven y la clase de Spinning.
+**Tarea a realizar:** Dar de alta a Laura Gómez Ruiz, nacida el 14/05/2003, de Sevilla, con cuota Joven y la clase de Spinning.
 
 Las respuestas se recogieron con un formulario de Google Forms y se exportaron a CSV ([RespuestasFormulario.csv](RespuestasFormulario.csv)).
 
